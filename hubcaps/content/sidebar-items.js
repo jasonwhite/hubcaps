@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Content","Provides access to the content information for a repository"],["DirectoryItem",""],["File",""],["Links",""],["Submodule",""],["Symlink",""]]});

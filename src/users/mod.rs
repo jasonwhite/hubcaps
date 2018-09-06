@@ -5,7 +5,7 @@ use {Future, Github};
 use hyper::client::connect::Connect;
 
 /// User information
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 pub struct User {
     pub login: String,
     pub id: u64,
@@ -27,7 +27,7 @@ pub struct User {
 }
 
 /// Information about current authenticated user
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 pub struct AuthenticatedUser {
     pub login: String,
     pub id: u64,

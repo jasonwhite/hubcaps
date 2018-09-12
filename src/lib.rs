@@ -72,6 +72,8 @@ extern crate http;
 extern crate hyper;
 #[cfg(feature = "tls")]
 extern crate hyper_tls;
+#[cfg(feature = "rustls")]
+extern crate hyper_rustls;
 extern crate hyperx;
 #[macro_use]
 extern crate log;
@@ -92,6 +94,8 @@ use hyper::header::{ACCEPT, AUTHORIZATION, LINK, LOCATION, USER_AGENT};
 use hyper::{Body, Client, Method, Request, StatusCode, Uri};
 #[cfg(feature = "tls")]
 use hyper_tls::HttpsConnector;
+#[cfg(feature = "rustls")]
+use hyper_rustls::HttpsConnector;
 use hyperx::header::{qitem, Link, RelationType};
 use mime::Mime;
 use serde::de::DeserializeOwned;
@@ -225,7 +229,7 @@ where
     credentials: Option<Credentials>,
 }
 
-#[cfg(feature = "tls")]
+#[cfg(any(feature = "tls", feature = "rustls"))]
 impl Github<HttpsConnector<HttpConnector>> {
     pub fn new<A, C>(agent: A, credentials: C) -> Self
     where
@@ -241,7 +245,10 @@ impl Github<HttpsConnector<HttpConnector>> {
         A: Into<String>,
         C: Into<Option<Credentials>>,
     {
+        #[cfg(feature = "tls")]
         let connector = HttpsConnector::new(4).unwrap();
+        #[cfg(feature = "rustls")]
+        let connector = HttpsConnector::new(4);
         let http = Client::builder()
             .keep_alive(true)
             .build(connector);

@@ -4,6 +4,7 @@ use std::collections::HashMap;
 use url::form_urlencoded;
 use serde::Deserialize;
 
+use crate::datetime::DateTime;
 use crate::users::User;
 use crate::Future;
 use crate::Github;
@@ -190,8 +191,8 @@ impl Notifications {
 pub struct Thread {
     pub id: String,
     pub unread: bool,
-    pub updated_at: String,
-    pub last_read_at: Option<String>,
+    pub updated_at: DateTime,
+    pub last_read_at: Option<DateTime>,
     pub reason: String,
     pub subject: Subject,
     pub repository: Repository,
@@ -288,7 +289,7 @@ pub struct Subscription {
     pub subscribed: bool,
     pub ignored: bool,
     pub reason: String,
-    pub created_at: String,
+    pub created_at: DateTime,
     pub url: String,
     pub thread_url: String,
 }

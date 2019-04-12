@@ -6,6 +6,7 @@ use serde::de::DeserializeOwned;
 use url::{self, form_urlencoded};
 use serde::Deserialize;
 
+use crate::datetime::DateTime;
 use crate::labels::Label;
 use crate::users::User;
 use crate::{unfold, Future, Github, SortDirection, Stream};
@@ -207,9 +208,9 @@ pub struct IssuesItem {
     pub assignee: Option<User>,
     pub assignees: Vec<User>,
     pub comments: u64,
-    pub created_at: String,
-    pub updated_at: String,
-    pub closed_at: Option<String>,
+    pub created_at: DateTime,
+    pub updated_at: DateTime,
+    pub closed_at: Option<DateTime>,
     pub pull_request: Option<PullRequestInfo>,
     pub body: Option<String>,
 }

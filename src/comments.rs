@@ -4,6 +4,7 @@ use std::collections::HashMap;
 use url::form_urlencoded;
 use serde::{Deserialize, Serialize};
 
+use crate::datetime::DateTime;
 use crate::users::User;
 use crate::{Future, Github};
 
@@ -61,8 +62,8 @@ pub struct Comment {
     pub html_url: String,
     pub body: String,
     pub user: User,
-    pub created_at: String,
-    pub updated_at: String,
+    pub created_at: DateTime,
+    pub updated_at: DateTime,
 }
 
 #[derive(Debug, Serialize)]

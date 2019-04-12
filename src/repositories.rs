@@ -8,6 +8,7 @@ use serde::{Deserialize, Serialize};
 use crate::branches::Branches;
 use crate::checks::CheckRuns;
 use crate::content::Content;
+use crate::datetime::DateTime;
 use crate::deployments::Deployments;
 use crate::git::Git;
 use crate::hooks::Hooks;
@@ -506,9 +507,9 @@ pub struct Repo {
     pub has_pages: bool,
     pub has_downloads: bool,
     pub archived: bool,
-    pub pushed_at: String,
-    pub created_at: String,
-    pub updated_at: String, // permissions: Permissions
+    pub pushed_at: DateTime,
+    pub created_at: DateTime,
+    pub updated_at: DateTime, // permissions: Permissions
 }
 
 impl Repo {

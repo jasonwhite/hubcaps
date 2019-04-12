@@ -6,6 +6,7 @@ use url::form_urlencoded;
 use serde::{Deserialize, Serialize};
 
 use crate::comments::Comments;
+use crate::datetime::DateTime;
 use crate::issues::{IssueAssignees, IssueLabels, Sort as IssueSort, State};
 use crate::labels::Label;
 use crate::pull_commits::PullCommits;
@@ -239,10 +240,10 @@ pub struct Pull {
     pub state: String,
     pub title: String,
     pub body: Option<String>,
-    pub created_at: String,
-    pub updated_at: String,
-    pub closed_at: Option<String>,
-    pub merged_at: Option<String>,
+    pub created_at: DateTime,
+    pub updated_at: DateTime,
+    pub closed_at: Option<DateTime>,
+    pub merged_at: Option<DateTime>,
     pub head: Commit,
     pub base: Commit,
     // links

@@ -1,6 +1,7 @@
 //! Releases interface
 use serde::{Deserialize, Serialize};
 
+use crate::datetime::DateTime;
 use crate::users::User;
 use crate::{Future, Github};
 
@@ -224,8 +225,8 @@ pub struct Asset {
     pub content_type: String,
     pub size: u64,
     pub download_count: u64,
-    pub created_at: String,
-    pub updated_at: String,
+    pub created_at: DateTime,
+    pub updated_at: DateTime,
     pub uploader: User,
 }
 
@@ -244,8 +245,8 @@ pub struct Release {
     pub body: String,
     pub draft: bool,
     pub prerelease: bool,
-    pub created_at: String,
-    pub published_at: String,
+    pub created_at: DateTime,
+    pub published_at: DateTime,
     pub author: User,
     pub assets: Vec<Asset>,
 }

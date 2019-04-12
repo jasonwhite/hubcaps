@@ -4,6 +4,7 @@ use std::fmt;
 use serde::Deserialize;
 
 use crate::{Future, Github};
+use crate::datetime::DateTime;
 
 /// Describes types of breakdowns of the data for views or clones
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -109,7 +110,7 @@ pub struct Clones {
 
 #[derive(Debug, Deserialize)]
 pub struct DataPoint {
-    pub timestamp: String,
+    pub timestamp: DateTime,
     pub count: u32,
     pub uniques: u32,
 }

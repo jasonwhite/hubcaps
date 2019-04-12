@@ -6,6 +6,7 @@ use std::fmt;
 
 use serde::{Deserialize, Serialize};
 
+use crate::datetime::DateTime;
 use crate::{Future, Github};
 
 /// Content-Type web hooks will receive
@@ -304,8 +305,8 @@ pub struct Hook {
     pub name: String,
     pub events: Vec<String>,
     pub config: ::serde_json::Value,
-    pub created_at: String,
-    pub updated_at: String,
+    pub created_at: DateTime,
+    pub updated_at: DateTime,
     pub active: bool,
 }
 

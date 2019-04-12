@@ -4,6 +4,7 @@ use std::collections::HashMap;
 use url::form_urlencoded;
 use serde::{Deserialize, Serialize};
 
+use crate::datetime::DateTime;
 use crate::statuses::State;
 use crate::users::User;
 use crate::{Future, Github};
@@ -115,8 +116,8 @@ pub struct Deployment {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     pub creator: User,
-    pub created_at: String,
-    pub updated_at: String,
+    pub created_at: DateTime,
+    pub updated_at: DateTime,
     pub statuses_url: String,
     pub repository_url: String,
 }
@@ -221,8 +222,8 @@ impl DeploymentOptionsBuilder {
 #[derive(Debug, Deserialize)]
 pub struct DeploymentStatus {
     pub url: String,
-    pub created_at: String,
-    pub updated_at: String,
+    pub created_at: DateTime,
+    pub updated_at: DateTime,
     pub state: State,
     pub target_url: Option<String>,
     pub description: Option<String>,

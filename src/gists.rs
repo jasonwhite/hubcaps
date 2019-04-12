@@ -5,6 +5,7 @@ use std::hash::Hash;
 use url::form_urlencoded;
 use serde::{Deserialize, Serialize};
 
+use crate::datetime::DateTime;
 use crate::users::User;
 use crate::{Future, Github};
 
@@ -163,8 +164,8 @@ pub struct Gist {
     pub html_url: String,
     pub git_pull_url: String,
     pub git_push_url: String,
-    pub created_at: String,
-    pub updated_at: String,
+    pub created_at: DateTime,
+    pub updated_at: DateTime,
 }
 
 #[derive(Debug, Deserialize)]
@@ -172,8 +173,8 @@ pub struct GistFork {
     pub user: User,
     pub url: String,
     pub id: String,
-    pub created_at: String,
-    pub updated_at: String,
+    pub created_at: DateTime,
+    pub updated_at: DateTime,
 }
 
 #[derive(Debug, Clone, Serialize)]

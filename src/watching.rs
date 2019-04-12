@@ -2,6 +2,7 @@
 /// https://developer.github.com/v3/activity/watching
 use serde::Deserialize;
 
+use crate::datetime::DateTime;
 use crate::repositories::Repo;
 use crate::{Future, Github, Stream};
 
@@ -65,7 +66,7 @@ pub struct Subscription {
     pub subscribed: bool,
     pub ignored: bool,
     pub reason: Option<String>,
-    pub created_at: String,
+    pub created_at: DateTime,
     pub url: String,
     pub repository_url: String,
 }

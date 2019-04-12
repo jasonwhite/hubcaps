@@ -5,6 +5,7 @@ use url::form_urlencoded;
 use serde::Deserialize;
 
 use super::{Search, SearchResult};
+use crate::datetime::DateTime;
 use crate::{Future, SortDirection, Stream};
 use crate::users::User;
 
@@ -172,9 +173,9 @@ pub struct ReposItem {
     pub labels_url: String,
     pub releases_url: String,
     pub deployments_url: String,
-    pub created_at: String,
-    pub updated_at: String,
-    pub pushed_at: String,
+    pub created_at: DateTime,
+    pub updated_at: DateTime,
+    pub pushed_at: DateTime,
     pub git_url: String,
     pub ssh_url: String,
     pub clone_url: String,

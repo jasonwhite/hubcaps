@@ -6,6 +6,7 @@ use url::form_urlencoded;
 use serde::{Deserialize, Serialize};
 
 use crate::comments::Comments;
+use crate::datetime::DateTime;
 use crate::labels::Label;
 use crate::users::User;
 use crate::{Future, Github, SortDirection, Stream};
@@ -471,9 +472,9 @@ pub struct Issue {
     pub locked: bool,
     pub comments: u64,
     pub pull_request: Option<PullRef>,
-    pub closed_at: Option<String>,
-    pub created_at: String,
-    pub updated_at: String,
+    pub closed_at: Option<DateTime>,
+    pub created_at: DateTime,
+    pub updated_at: DateTime,
     pub assignees: Vec<User>,
 }
 

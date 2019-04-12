@@ -1,6 +1,7 @@
 //! Statuses interface
 use serde::{Deserialize, Serialize};
 
+use crate::datetime::DateTime;
 use crate::users::User;
 use crate::{Future, Github};
 
@@ -57,8 +58,8 @@ impl Statuses {
 
 #[derive(Debug, Deserialize)]
 pub struct Status {
-    pub created_at: String,
-    pub updated_at: String,
+    pub created_at: DateTime,
+    pub updated_at: DateTime,
     pub state: State,
     pub target_url: String,
     pub description: String,

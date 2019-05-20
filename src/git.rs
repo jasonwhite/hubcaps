@@ -1,6 +1,7 @@
 //! Git interface
 
 // Third party
+use percent_encoding::{percent_encode, QUERY_ENCODE_SET};
 use serde::Deserialize;
 
 // Ours
@@ -28,6 +29,8 @@ impl Git {
     }
 
     fn path(&self, more: &str) -> String {
+        // Handle refs with '#' or spaces in them.
+        let more = percent_encode(more.as_ref(), QUERY_ENCODE_SET);
         format!("/repos/{}/{}/git{}", self.owner, self.repo, more)
     }
 
